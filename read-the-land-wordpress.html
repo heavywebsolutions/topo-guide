@@ -1,0 +1,476 @@
+<!--
+  =============================================
+  DEVIANT INK — READ THE LAND
+  WordPress WPCode / Custom HTML Version
+  =============================================
+  
+  HOW TO USE:
+  
+  METHOD 1 — WPCode Plugin (RECOMMENDED):
+  1. In WordPress dashboard: Plugins > Add New > search "WPCode"
+  2. Install & activate "WPCode – Insert Headers and Footers + Custom Code Snippets"
+  3. Go to: Code Snippets > + Add Snippet > choose "Add Your Custom Code"
+  4. Name it: "Read the Land Topo Guide"
+  5. Set Code Type to: "HTML Snippet"
+  6. Paste THIS ENTIRE FILE into the code box
+  7. Set Insert Method to: "Shortcode"
+  8. Copy the shortcode it gives you (like [wpcode id="123"])
+  9. Save & Activate
+  10. Edit your page, add a Shortcode block, paste: [wpcode id="123"]
+  11. Done!
+  
+  METHOD 2 — Custom HTML Block (simpler but riskier):
+  1. Edit your WordPress page
+  2. Delete all current content on the page
+  3. Add a single "Custom HTML" block
+  4. Paste this entire file
+  5. Update/publish
+  Note: Some themes strip scripts from Custom HTML blocks.
+  If interactivity doesn't work, use Method 1.
+  
+  =============================================
+-->
+
+<div id="rtl-root">
+<style>
+  #rtl-root,#rtl-root *,#rtl-root *::before,#rtl-root *::after{margin:0!important;padding:0!important;box-sizing:border-box!important;float:none!important;text-transform:none!important;}
+  #rtl-root{font-family:'Source Serif 4',Georgia,serif!important;background:#f5f2eb!important;color:#0a0a0a!important;line-height:1.7!important;overflow-x:hidden!important;max-width:100%!important;position:relative!important;}
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap');
+
+  /* HERO */
+  #rtl-root .rtl-hero{min-height:100vh!important;display:flex!important;flex-direction:column!important;justify-content:center!important;align-items:center!important;text-align:center!important;padding:3rem 2rem!important;position:relative!important;background:#0a0a0a!important;color:#f5f2eb!important;overflow:hidden!important;width:100%!important;}
+  #rtl-root .rtl-hero-bg{position:absolute!important;inset:0!important;opacity:.07!important;pointer-events:none!important;}
+  #rtl-root .rtl-hero-bg svg{width:100%!important;height:100%!important;}
+  #rtl-root .rtl-hero-logo{width:220px!important;height:auto!important;margin-bottom:2rem!important;filter:invert(1)!important;opacity:.9!important;}
+  #rtl-root .rtl-hero h1{font-family:'Bebas Neue',Impact,sans-serif!important;font-size:clamp(3rem,9vw,7rem)!important;letter-spacing:.06em!important;line-height:.95!important;margin-bottom:1rem!important;color:#f5f2eb!important;border:none!important;background:none!important;}
+  #rtl-root .rtl-hero h1 span{display:block!important;font-size:.4em!important;letter-spacing:.25em!important;opacity:.5!important;margin-bottom:.5rem!important;color:#f5f2eb!important;}
+  #rtl-root .rtl-hero-sub{font-size:1.15rem!important;max-width:520px!important;opacity:.7!important;font-weight:300!important;color:#f5f2eb!important;}
+  #rtl-root .rtl-hero-scroll{display:inline-block!important;margin-top:3rem!important;font-family:'Bebas Neue',Impact,sans-serif!important;letter-spacing:.2em!important;font-size:.8rem!important;opacity:.4!important;text-decoration:none!important;color:#f5f2eb!important;}
+
+  /* NAV */
+  #rtl-root .rtl-nav{position:sticky!important;top:0!important;z-index:100!important;background:#0a0a0a!important;border-bottom:1px solid rgba(255,255,255,.1)!important;padding:.6rem 1.5rem!important;display:flex!important;align-items:center!important;gap:1.5rem!important;overflow-x:auto!important;-webkit-overflow-scrolling:touch!important;width:100%!important;}
+  #rtl-root .rtl-nav a{font-family:'Bebas Neue',Impact,sans-serif!important;font-size:.85rem!important;letter-spacing:.15em!important;color:rgba(255,255,255,.5)!important;text-decoration:none!important;white-space:nowrap!important;background:none!important;border:none!important;display:inline!important;}
+  #rtl-root .rtl-nav a:hover{color:#d4a017!important;}
+  #rtl-root .rtl-nav-logo{height:22px!important;width:auto!important;filter:invert(1)!important;opacity:.7!important;flex-shrink:0!important;}
+
+  /* SECTIONS */
+  #rtl-root .rtl-s{padding:4rem 1.5rem!important;max-width:860px!important;margin:0 auto!important;width:100%!important;}
+  #rtl-root .rtl-s.rtl-w{max-width:1100px!important;}
+  #rtl-root .rtl-sn{font-family:'Bebas Neue',Impact,sans-serif!important;font-size:.8rem!important;letter-spacing:.3em!important;color:#8b7355!important;margin-bottom:.5rem!important;display:block!important;}
+  #rtl-root h2{font-family:'Bebas Neue',Impact,sans-serif!important;font-size:clamp(2rem,5vw,3.2rem)!important;letter-spacing:.04em!important;line-height:1.05!important;margin-bottom:1.5rem!important;color:#0a0a0a!important;border:none!important;background:none!important;padding:0!important;}
+  #rtl-root h3{font-family:'Bebas Neue',Impact,sans-serif!important;font-size:1.3rem!important;letter-spacing:.06em!important;margin-bottom:.75rem!important;color:#2d4a2d!important;border:none!important;background:none!important;padding:0!important;}
+  #rtl-root p{margin-bottom:1rem!important;font-size:1.05rem!important;color:#0a0a0a!important;line-height:1.7!important;}
+  #rtl-root .rtl-lead{font-size:1.2rem!important;font-weight:300!important;opacity:.8!important;}
+  #rtl-root .rtl-div{width:60px!important;height:3px!important;background:#d4a017!important;margin:3rem auto!important;border:none!important;}
+
+  /* DEMO BOXES */
+  #rtl-root .rtl-demo{background:#ede8dd!important;border:1px solid #d4cbbf!important;border-radius:4px!important;padding:1.5rem!important;margin:2rem 0!important;}
+  #rtl-root .rtl-dl{font-family:'Bebas Neue',Impact,sans-serif!important;font-size:.75rem!important;letter-spacing:.2em!important;color:#8b7355!important;margin-bottom:.75rem!important;}
+  #rtl-root .rtl-demo canvas{width:100%!important;display:block!important;border-radius:2px!important;height:auto!important;}
+  #rtl-root .rtl-demo svg{width:100%!important;height:auto!important;display:block!important;}
+  #rtl-root .rtl-sl{display:flex!important;align-items:center!important;gap:1rem!important;margin-top:1rem!important;}
+  #rtl-root .rtl-sl label{font-family:'Bebas Neue',Impact,sans-serif!important;font-size:.8rem!important;letter-spacing:.15em!important;color:#8b7355!important;white-space:nowrap!important;}
+  #rtl-root .rtl-sl input[type="range"]{-webkit-appearance:none!important;appearance:none!important;flex:1!important;height:4px!important;background:#d4cbbf!important;border-radius:2px!important;outline:none!important;border:none!important;margin:0!important;}
+  #rtl-root .rtl-sl input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none!important;width:20px!important;height:20px!important;background:#0a0a0a!important;border-radius:50%!important;cursor:pointer!important;}
+  #rtl-root .rtl-sl input[type="range"]::-moz-range-thumb{width:20px!important;height:20px!important;background:#0a0a0a!important;border-radius:50%!important;cursor:pointer!important;border:none!important;}
+
+  /* RULES GRID */
+  #rtl-root .rtl-rg{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(270px,1fr))!important;gap:1.5rem!important;margin:2rem 0!important;}
+  #rtl-root .rtl-rc{background:#ede8dd!important;border:1px solid #d4cbbf!important;padding:1.5rem!important;border-radius:4px!important;list-style:none!important;}
+  #rtl-root .rtl-rc svg{width:100%!important;height:120px!important;margin-bottom:1rem!important;display:block!important;}
+  #rtl-root .rtl-rc h3{font-size:1.1rem!important;margin-bottom:.4rem!important;}
+  #rtl-root .rtl-rc p{font-size:.95rem!important;margin-bottom:0!important;opacity:.8!important;}
+
+  /* FEATURES GRID */
+  #rtl-root .rtl-fg{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))!important;gap:1.5rem!important;margin:2rem 0!important;}
+  #rtl-root .rtl-fc{background:#ede8dd!important;border:1px solid #d4cbbf!important;border-radius:4px!important;overflow:hidden!important;cursor:pointer!important;list-style:none!important;}
+  #rtl-root .rtl-fc svg{width:100%!important;height:160px!important;display:block!important;background:#faf7f0!important;}
+  #rtl-root .rtl-fi{padding:1rem 1.25rem!important;}
+  #rtl-root .rtl-fc h3{font-size:1.05rem!important;margin-bottom:.2rem!important;}
+  #rtl-root .rtl-fc p{font-size:.88rem!important;margin:0!important;opacity:.7!important;}
+  #rtl-root .rtl-fc-detail{display:none!important;padding:0 1.25rem 1rem!important;font-size:.9rem!important;border-top:1px solid #d4cbbf!important;padding-top:.75rem!important;margin-top:.5rem!important;color:#0a0a0a!important;opacity:.8!important;}
+  #rtl-root .rtl-fc.rtl-open .rtl-fc-detail{display:block!important;}
+
+  /* TIPS */
+  #rtl-root .rtl-tip{border-left:3px solid #d4a017!important;padding:1rem 1.5rem!important;margin:1.5rem 0!important;background:rgba(212,160,23,.06)!important;}
+  #rtl-root .rtl-tip strong{font-family:'Bebas Neue',Impact,sans-serif!important;letter-spacing:.1em!important;color:#5c4400!important;}
+
+  /* QUIZ */
+  #rtl-root .rtl-qz{background:#0a0a0a!important;color:#f5f2eb!important;border-radius:4px!important;padding:2rem!important;margin:2rem 0!important;}
+  #rtl-root .rtl-qz svg{width:100%!important;height:280px!important;margin-bottom:1.5rem!important;display:block!important;}
+  #rtl-root .rtl-qo{display:grid!important;grid-template-columns:1fr 1fr!important;gap:.75rem!important;}
+  #rtl-root .rtl-qb{font-family:'Bebas Neue',Impact,sans-serif!important;font-size:1rem!important;letter-spacing:.1em!important;padding:.75rem 1rem!important;border:1px solid rgba(255,255,255,.2)!important;background:transparent!important;color:#f5f2eb!important;cursor:pointer!important;border-radius:3px!important;text-align:center!important;display:block!important;width:100%!important;}
+  #rtl-root .rtl-qb:hover{border-color:#d4a017!important;color:#d4a017!important;}
+  #rtl-root .rtl-qb.rtl-y{background:#2d4a2d!important;border-color:#4a7c4a!important;color:#fff!important;}
+  #rtl-root .rtl-qb.rtl-n{background:rgba(192,57,43,.3)!important;border-color:#c0392b!important;color:#ff8a80!important;}
+  #rtl-root .rtl-qfb{margin-top:1rem!important;font-size:.95rem!important;min-height:1.5rem!important;opacity:.85!important;color:#f5f2eb!important;}
+  #rtl-root .rtl-qp{font-family:'Bebas Neue',Impact,sans-serif!important;font-size:.8rem!important;letter-spacing:.2em!important;opacity:.4!important;margin-bottom:1rem!important;color:#f5f2eb!important;}
+  #rtl-root .rtl-qnx{font-family:'Bebas Neue',Impact,sans-serif!important;font-size:1rem!important;letter-spacing:.15em!important;padding:.75rem 2rem!important;border:1px solid #d4a017!important;background:transparent!important;color:#d4a017!important;cursor:pointer!important;border-radius:3px!important;margin-top:1rem!important;display:none!important;}
+  #rtl-root .rtl-qnx.rtl-show{display:inline-block!important;}
+  #rtl-root .rtl-qnx:hover{background:#d4a017!important;color:#0a0a0a!important;}
+  #rtl-root .rtl-bn{font-family:'Bebas Neue',Impact,sans-serif!important;font-size:5rem!important;line-height:1!important;color:#d4a017!important;}
+
+  /* FOOTER */
+  #rtl-root .rtl-ft{background:#0a0a0a!important;color:#f5f2eb!important;text-align:center!important;padding:3rem 1.5rem!important;width:100%!important;}
+  #rtl-root .rtl-ft img{height:30px!important;width:auto!important;filter:invert(1)!important;opacity:.6!important;margin-bottom:1rem!important;}
+  #rtl-root .rtl-ft p{opacity:.3!important;font-size:.85rem!important;color:#f5f2eb!important;}
+
+  @media(max-width:640px){
+    #rtl-root .rtl-s{padding:3rem 1.25rem!important;}
+    #rtl-root .rtl-qo{grid-template-columns:1fr!important;}
+    #rtl-root .rtl-rg,#rtl-root .rtl-fg{grid-template-columns:1fr!important;}
+    #rtl-root .rtl-hero h1{font-size:clamp(2.5rem,8vw,5rem)!important;}
+  }
+</style>
+
+<!-- ═══ HERO ═══ -->
+<div class="rtl-hero">
+  <div class="rtl-hero-bg"><svg viewBox="0 0 1200 800" fill="none"><path d="M0 400Q300 200 600 350T1200 300" stroke="currentColor" stroke-width="1" fill="none"/><path d="M0 450Q300 250 600 400T1200 350" stroke="currentColor" stroke-width="1" fill="none"/><path d="M0 500Q300 300 600 450T1200 400" stroke="currentColor" stroke-width="2" fill="none"/><path d="M0 550Q300 350 600 500T1200 450" stroke="currentColor" stroke-width="1" fill="none"/><path d="M0 600Q300 400 600 550T1200 500" stroke="currentColor" stroke-width="1" fill="none"/><path d="M0 350Q300 150 600 300T1200 250" stroke="currentColor" stroke-width="1" fill="none"/><path d="M0 300Q300 100 600 250T1200 200" stroke="currentColor" stroke-width="2" fill="none"/><path d="M0 250Q300 50 600 200T1200 150" stroke="currentColor" stroke-width="1" fill="none"/><path d="M0 650Q300 450 600 600T1200 550" stroke="currentColor" stroke-width="2" fill="none"/><path d="M0 700Q300 500 600 650T1200 600" stroke="currentColor" stroke-width="1" fill="none"/></svg></div>
+  <img class="rtl-hero-logo" src="https://deviantink.com/content/wp-content/uploads/2021/09/DI-logo-wht.png" alt="Deviant Ink">
+  <h1><span>A Field Guide to</span>Read the Land</h1>
+  <p class="rtl-hero-sub">The complete, interactive guide to reading contour lines on topographic maps. From zero to confident in one sitting.</p>
+  <a href="#rtl-s1" class="rtl-hero-scroll">↓ START LEARNING ↓</a>
+</div>
+
+<!-- ═══ NAV ═══ -->
+<div class="rtl-nav">
+  <img class="rtl-nav-logo" src="https://deviantink.com/content/wp-content/uploads/2021/09/DI-logo-wht.png" alt="DI">
+  <a href="#rtl-s1">Basics</a>
+  <a href="#rtl-s2">Steepness</a>
+  <a href="#rtl-s3">Core Rules</a>
+  <a href="#rtl-s4">Terrain</a>
+  <a href="#rtl-s5">Pro Tips</a>
+  <a href="#rtl-s6">Quiz</a>
+</div>
+
+<!-- ═══ 01 — THE CONCEPT ═══ -->
+<div class="rtl-s" id="rtl-s1">
+  <span class="rtl-sn">01 — THE CONCEPT</span>
+  <h2>What Are Contour Lines?</h2>
+  <p class="rtl-lead">Imagine slicing a mountain horizontally — like cutting a loaf of bread into even layers. Each slice represents a specific elevation. Now look at those slices from directly above. That's your contour map.</p>
+  <p>Every contour line connects points of <strong>equal elevation</strong>. If you walked along a single contour line in real life, you'd stay perfectly level — no uphill, no downhill. The magic is in what happens <em>between</em> the lines.</p>
+
+  <div class="rtl-demo">
+    <div class="rtl-dl">HOW 3D BECOMES 2D — SIDE VIEW vs TOP-DOWN</div>
+    <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+      <!-- Left: 3D mountain with slice lines -->
+      <text x="190" y="20" font-family="Bebas Neue,sans-serif" font-size="13" fill="#5c4400" letter-spacing="2" text-anchor="middle">SIDE VIEW (SLICED)</text>
+      <path d="M40 260 Q120 240 190 60 Q260 240 340 260" fill="rgba(45,74,45,0.1)" stroke="#2d4a2d" stroke-width="2"/>
+      <!-- Horizontal slice lines -->
+      <line x1="75" y1="220" x2="305" y2="220" stroke="#8b6914" stroke-width="1.2" stroke-dasharray="4,3"/>
+      <line x1="95" y1="180" x2="285" y2="180" stroke="#8b6914" stroke-width="1.2" stroke-dasharray="4,3"/>
+      <line x1="115" y1="140" x2="265" y2="140" stroke="#8b6914" stroke-width="2.5" stroke-dasharray="4,3"/>
+      <line x1="140" y1="100" x2="240" y2="100" stroke="#8b6914" stroke-width="1.2" stroke-dasharray="4,3"/>
+      <line x1="165" y1="75" x2="215" y2="75" stroke="#8b6914" stroke-width="1.2" stroke-dasharray="4,3"/>
+      <!-- Labels -->
+      <text x="345" y="224" font-family="JetBrains Mono,monospace" font-size="9" fill="#5c4400">5000 ft</text>
+      <text x="345" y="184" font-family="JetBrains Mono,monospace" font-size="9" fill="#5c4400">5200 ft</text>
+      <text x="345" y="144" font-family="JetBrains Mono,monospace" font-size="9" fill="#8b6914" font-weight="600">5400 ft</text>
+      <text x="345" y="104" font-family="JetBrains Mono,monospace" font-size="9" fill="#5c4400">5600 ft</text>
+      <text x="345" y="79" font-family="JetBrains Mono,monospace" font-size="9" fill="#5c4400">5800 ft</text>
+      <!-- Arrow -->
+      <line x1="400" y1="150" x2="430" y2="150" stroke="#c0392b" stroke-width="2"/>
+      <polygon points="428,144 440,150 428,156" fill="#c0392b"/>
+
+      <!-- Right: Top-down contour view -->
+      <text x="610" y="20" font-family="Bebas Neue,sans-serif" font-size="13" fill="#5c4400" letter-spacing="2" text-anchor="middle">TOP-DOWN VIEW</text>
+      <ellipse cx="610" cy="155" rx="150" ry="120" fill="none" stroke="#8b6914" stroke-width="1.2"/>
+      <ellipse cx="610" cy="155" rx="120" ry="96" fill="none" stroke="#8b6914" stroke-width="1.2"/>
+      <ellipse cx="610" cy="155" rx="90" ry="72" fill="none" stroke="#8b6914" stroke-width="2.5"/>
+      <ellipse cx="610" cy="155" rx="55" ry="44" fill="none" stroke="#8b6914" stroke-width="1.2"/>
+      <ellipse cx="610" cy="155" rx="25" ry="20" fill="none" stroke="#8b6914" stroke-width="1.2"/>
+      <!-- Labels on right -->
+      <text x="765" y="162" font-family="JetBrains Mono,monospace" font-size="9" fill="#5c4400">5000</text>
+      <text x="703" y="103" font-family="JetBrains Mono,monospace" font-size="9" fill="#8b6914" font-weight="600">5400</text>
+      <text x="640" y="150" font-family="JetBrains Mono,monospace" font-size="9" fill="#5c4400">5800</text>
+    </svg>
+  </div>
+
+  <h3>Three Things Every Contour Line Tells You</h3>
+  <p><strong>1. Elevation</strong> — Each line sits at a specific height above sea level. Index lines (the thicker, bolder ones) are labeled with their elevation.</p>
+  <p><strong>2. Shape of the terrain</strong> — The curves and bends of contour lines mirror the shape of the land. Circular lines? A hill. Long parallel lines? A ridge.</p>
+  <p><strong>3. Steepness</strong> — This is the biggest unlock. Lines close together = steep terrain. Lines far apart = gentle slope. It's that simple, and once you see it, you can't unsee it.</p>
+
+  <div class="rtl-div"></div>
+
+  <span class="rtl-sn">02 — LINE TYPES</span>
+  <h2>Know Your Lines</h2>
+  <p>Not all contour lines are created equal. There are three types, and knowing them is essential.</p>
+
+  <div class="rtl-demo">
+    <div class="rtl-dl">THE THREE LINE TYPES</div>
+    <svg viewBox="0 0 800 180" xmlns="http://www.w3.org/2000/svg">
+      <!-- Index Lines -->
+      <text x="133" y="22" font-family="Bebas Neue,sans-serif" font-size="12" fill="#5c4400" letter-spacing="2" text-anchor="middle">INDEX LINES</text>
+      <path d="M15 45 Q70 38 130 50 Q190 62 250 45" fill="none" stroke="#8b6914" stroke-width="3"/>
+      <text x="258" y="42" font-family="JetBrains Mono,monospace" font-size="8" fill="#5c4400" font-weight="600">800 ft</text>
+      <path d="M15 72 Q70 65 130 77 Q190 89 250 72" fill="none" stroke="#8b6914" stroke-width="1.2"/>
+      <path d="M15 95 Q70 88 130 100 Q190 112 250 95" fill="none" stroke="#8b6914" stroke-width="1.2"/>
+      <path d="M15 118 Q70 111 130 123 Q190 135 250 118" fill="none" stroke="#8b6914" stroke-width="1.2"/>
+      <path d="M15 141 Q70 134 130 146 Q190 158 250 141" fill="none" stroke="#8b6914" stroke-width="3"/>
+      <text x="258" y="138" font-family="JetBrains Mono,monospace" font-size="8" fill="#5c4400" font-weight="600">600 ft</text>
+      <text x="133" y="172" font-family="Source Serif 4,serif" font-size="10" fill="#8b7355" text-anchor="middle">Thick, bold, labeled</text>
+
+      <!-- Intermediate -->
+      <text x="400" y="22" font-family="Bebas Neue,sans-serif" font-size="12" fill="#5c4400" letter-spacing="2" text-anchor="middle">INTERMEDIATE</text>
+      <path d="M280 50 Q340 42 400 55 Q460 68 520 50" fill="none" stroke="#8b6914" stroke-width="1.2"/>
+      <path d="M280 77 Q340 69 400 82 Q460 95 520 77" fill="none" stroke="#8b6914" stroke-width="1.2"/>
+      <path d="M280 104 Q340 96 400 109 Q460 122 520 104" fill="none" stroke="#8b6914" stroke-width="1.2"/>
+      <path d="M280 131 Q340 123 400 136 Q460 149 520 131" fill="none" stroke="#8b6914" stroke-width="1.2"/>
+      <path d="M280 155 Q340 148 400 160 Q460 172 520 155" fill="none" stroke="#8b6914" stroke-width="1.2"/>
+      <text x="400" y="172" font-family="Source Serif 4,serif" font-size="10" fill="#8b7355" text-anchor="middle">Thin, unlabeled</text>
+
+      <!-- Supplementary -->
+      <text x="660" y="22" font-family="Bebas Neue,sans-serif" font-size="12" fill="#5c4400" letter-spacing="2" text-anchor="middle">SUPPLEMENTARY</text>
+      <path d="M545 60 Q610 52 660 65 Q720 78 785 60" fill="none" stroke="#8b6914" stroke-width="2.5"/>
+      <path d="M545 100 Q610 92 660 105 Q720 118 785 100" fill="none" stroke="#8b6914" stroke-width="1.2" stroke-dasharray="8,5"/>
+      <path d="M545 140 Q610 132 660 145 Q720 158 785 140" fill="none" stroke="#8b6914" stroke-width="1.2"/>
+      <text x="660" y="172" font-family="Source Serif 4,serif" font-size="10" fill="#8b7355" text-anchor="middle">Dashed, for gentle terrain</text>
+    </svg>
+  </div>
+
+  <p><strong>Index Lines</strong> — The thick, bold lines labeled with elevation numbers. Usually every 5th contour line. These are your anchors.</p>
+  <p><strong>Intermediate Lines</strong> — The thinner, unlabeled lines between index lines. Count these to figure out specific elevations.</p>
+  <p><strong>Supplementary Lines</strong> — Dashed lines used in areas with very gentle terrain where standard intervals would miss important features.</p>
+  <div class="rtl-tip"><strong>CONTOUR INTERVAL →</strong> The elevation difference between adjacent contour lines. Always check your map legend first — a 40-foot interval tells a very different story than a 10-foot interval.</div>
+</div>
+
+<!-- ═══ 03 — STEEPNESS ═══ -->
+<div class="rtl-s" id="rtl-s2">
+  <span class="rtl-sn">03 — STEEPNESS</span>
+  <h2>Reading Steepness</h2>
+  <p class="rtl-lead">This is the single most useful skill in contour reading. Master this and you'll know what the terrain feels like before you ever set foot on it.</p>
+
+  <div class="rtl-demo">
+    <div class="rtl-dl">STEEPNESS COMPARISON — SIDE PROFILE vs CONTOUR VIEW</div>
+    <svg viewBox="0 0 800 440" xmlns="http://www.w3.org/2000/svg">
+      <!-- GENTLE SLOPE -->
+      <text x="200" y="22" font-family="Bebas Neue,sans-serif" font-size="14" fill="#4a7c4a" letter-spacing="3" text-anchor="middle">GENTLE SLOPE</text>
+      <!-- Side profile -->
+      <text x="95" y="45" font-family="Bebas Neue,sans-serif" font-size="10" fill="#5c4400" letter-spacing="1" text-anchor="middle">SIDE PROFILE</text>
+      <polygon points="20,195 20,165 180,195" fill="rgba(45,74,45,0.1)" stroke="#2d4a2d" stroke-width="1.5"/>
+      <text x="100" y="212" font-family="JetBrains Mono,monospace" font-size="12" fill="#c0392b">~10°</text>
+      <!-- Contour view -->
+      <text x="310" y="45" font-family="Bebas Neue,sans-serif" font-size="10" fill="#5c4400" letter-spacing="1" text-anchor="middle">TOP-DOWN</text>
+      <ellipse cx="310" cy="130" rx="90" ry="72" fill="none" stroke="#8b6914" stroke-width="1.2"/>
+      <ellipse cx="310" cy="130" rx="72" ry="58" fill="none" stroke="#8b6914" stroke-width="1.2"/>
+      <ellipse cx="310" cy="130" rx="54" ry="43" fill="none" stroke="#8b6914" stroke-width="2"/>
+      <ellipse cx="310" cy="130" rx="36" ry="29" fill="none" stroke="#8b6914" stroke-width="1.2"/>
+      <ellipse cx="310" cy="130" rx="18" ry="14" fill="none" stroke="#8b6914" stroke-width="1.2"/>
+      <text x="310" y="218" font-family="Source Serif 4,serif" font-size="11" fill="#4a7c4a" text-anchor="middle" font-weight="600">Lines spread wide apart</text>
+
+      <!-- STEEP SLOPE -->
+      <text x="600" y="22" font-family="Bebas Neue,sans-serif" font-size="14" fill="#c0392b" letter-spacing="3" text-anchor="middle">STEEP SLOPE</text>
+      <!-- Side profile -->
+      <text x="510" y="45" font-family="Bebas Neue,sans-serif" font-size="10" fill="#5c4400" letter-spacing="1" text-anchor="middle">SIDE PROFILE</text>
+      <polygon points="460,195 460,60 560,195" fill="rgba(45,74,45,0.1)" stroke="#2d4a2d" stroke-width="1.5"/>
+      <text x="515" y="212" font-family="JetBrains Mono,monospace" font-size="12" fill="#c0392b">~55°</text>
+      <!-- Contour view -->
+      <text x="700" y="45" font-family="Bebas Neue,sans-serif" font-size="10" fill="#5c4400" letter-spacing="1" text-anchor="middle">TOP-DOWN</text>
+      <ellipse cx="700" cy="130" rx="80" ry="72" fill="none" stroke="#8b6914" stroke-width="1.2"/>
+      <ellipse cx="700" cy="130" rx="68" ry="61" fill="none" stroke="#8b6914" stroke-width="1.2"/>
+      <ellipse cx="700" cy="130" rx="56" ry="50" fill="none" stroke="#8b6914" stroke-width="2"/>
+      <ellipse cx="700" cy="130" rx="46" ry="41" fill="none" stroke="#8b6914" stroke-width="1.2"/>
+      <ellipse cx="700" cy="130" rx="38" ry="34" fill="none" stroke="#8b6914" stroke-width="1.2"/>
+      <text x="700" y="218" font-family="Source Serif 4,serif" font-size="11" fill="#c0392b" text-anchor="middle" font-weight="600">Lines packed tight together</text>
+
+      <!-- CLIFF -->
+      <text x="400" y="265" font-family="Bebas Neue,sans-serif" font-size="14" fill="#c0392b" letter-spacing="3" text-anchor="middle">⚠ CLIFF (LINES MERGE)</text>
+      <text x="180" y="290" font-family="Bebas Neue,sans-serif" font-size="10" fill="#5c4400" letter-spacing="1" text-anchor="middle">SIDE PROFILE</text>
+      <polygon points="90,430 90,290 130,430" fill="rgba(45,74,45,0.1)" stroke="#2d4a2d" stroke-width="1.5"/>
+      <text x="115" y="440" font-family="JetBrains Mono,monospace" font-size="12" fill="#c0392b">~85°</text>
+
+      <text x="530" y="290" font-family="Bebas Neue,sans-serif" font-size="10" fill="#5c4400" letter-spacing="1" text-anchor="middle">TOP-DOWN</text>
+      <path d="M380 320 Q530 315 680 320" fill="none" stroke="#8b6914" stroke-width="1.5"/>
+      <path d="M380 338 Q530 333 680 338" fill="none" stroke="#8b6914" stroke-width="1.5"/>
+      <path d="M380 354 Q530 350 680 354" fill="none" stroke="#8b6914" stroke-width="2"/>
+      <path d="M380 364 Q530 361 680 364" fill="none" stroke="#8b6914" stroke-width="1.5"/>
+      <path d="M380 371 Q530 369 680 371" fill="none" stroke="#8b6914" stroke-width="1.5"/>
+      <path d="M380 376 Q530 374 680 376" fill="none" stroke="#8b6914" stroke-width="1.5"/>
+      <path d="M380 380 Q530 378 680 380" fill="none" stroke="#8b6914" stroke-width="1.5"/>
+      <path d="M380 400 Q530 393 680 400" fill="none" stroke="#8b6914" stroke-width="1.5"/>
+      <path d="M380 425 Q530 415 680 425" fill="none" stroke="#8b6914" stroke-width="2"/>
+      <text x="530" y="440" font-family="Source Serif 4,serif" font-size="11" fill="#c0392b" text-anchor="middle" font-weight="600">Lines merge = impassable cliff</text>
+    </svg>
+  </div>
+
+  <div class="rtl-tip"><strong>CLIFF CHECK →</strong> When contour lines merge into a single thick band, that's a cliff or extremely steep face. If you see this on your planned route — find another way.</div>
+</div>
+
+<!-- ═══ 04 — CORE RULES ═══ -->
+<div class="rtl-s rtl-w" id="rtl-s3">
+  <span class="rtl-sn">04 — CORE RULES</span>
+  <h2>The Rules of Contour Lines</h2>
+  <p class="rtl-lead">These rules are absolute. They never break. Memorize them and you have the foundation for reading any topo map on the planet.</p>
+
+  <div class="rtl-rg">
+    <div class="rtl-rc">
+      <svg viewBox="0 0 280 120"><ellipse cx="140" cy="60" rx="120" ry="50" fill="none" stroke="#8b6914" stroke-width="1.5"/><ellipse cx="140" cy="60" rx="95" ry="40" fill="none" stroke="#8b6914" stroke-width="1.5"/><ellipse cx="140" cy="60" rx="70" ry="30" fill="none" stroke="#8b6914" stroke-width="2.5"/><ellipse cx="140" cy="60" rx="45" ry="20" fill="none" stroke="#8b6914" stroke-width="1.5"/><ellipse cx="140" cy="60" rx="20" ry="9" fill="none" stroke="#8b6914" stroke-width="1.5"/></svg>
+      <h3>Closed Loops = Hilltop</h3>
+      <p>Concentric closed contour lines indicate a summit or hilltop. The innermost ring is the highest point.</p>
+    </div>
+    <div class="rtl-rc">
+      <svg viewBox="0 0 280 120"><ellipse cx="140" cy="60" rx="120" ry="50" fill="none" stroke="#8b6914" stroke-width="1.5"/><ellipse cx="140" cy="60" rx="90" ry="38" fill="none" stroke="#8b6914" stroke-width="1.5"/><ellipse cx="140" cy="60" rx="60" ry="25" fill="none" stroke="#8b6914" stroke-width="1.5"/><line x1="80" y1="45" x2="88" y2="50" stroke="#8b6914" stroke-width="1.5"/><line x1="200" y1="45" x2="192" y2="50" stroke="#8b6914" stroke-width="1.5"/><line x1="140" y1="35" x2="140" y2="42" stroke="#8b6914" stroke-width="1.5"/><line x1="100" y1="80" x2="106" y2="75" stroke="#8b6914" stroke-width="1.5"/><line x1="180" y1="80" x2="174" y2="75" stroke="#8b6914" stroke-width="1.5"/><line x1="140" y1="85" x2="140" y2="78" stroke="#8b6914" stroke-width="1.5"/></svg>
+      <h3>Tick Marks = Depression</h3>
+      <p>Closed loops with small tick marks pointing inward mean the ground dips down — a crater, sinkhole, or depression.</p>
+    </div>
+    <div class="rtl-rc">
+      <svg viewBox="0 0 280 120"><path d="M20 20Q140 90 260 20" fill="none" stroke="#8b6914" stroke-width="1.5"/><path d="M20 40Q140 100 260 40" fill="none" stroke="#8b6914" stroke-width="2.5"/><path d="M20 60Q140 110 260 60" fill="none" stroke="#8b6914" stroke-width="1.5"/><path d="M20 80Q140 115 260 80" fill="none" stroke="#8b6914" stroke-width="1.5"/><line x1="140" y1="105" x2="140" y2="45" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4,3"/><polygon points="134,50 140,38 146,50" fill="#c0392b"/><text x="155" y="70" font-family="Bebas Neue,sans-serif" font-size="11" fill="#c0392b" letter-spacing="1">UPHILL</text></svg>
+      <h3>V's Point Uphill = Valley</h3>
+      <p>When contour lines form a V-shape, the V points toward higher elevation. That's a valley, draw, or drainage.</p>
+    </div>
+    <div class="rtl-rc">
+      <svg viewBox="0 0 280 120"><path d="M20 100Q140 30 260 100" fill="none" stroke="#8b6914" stroke-width="1.5"/><path d="M20 80Q140 20 260 80" fill="none" stroke="#8b6914" stroke-width="2.5"/><path d="M20 60Q140 10 260 60" fill="none" stroke="#8b6914" stroke-width="1.5"/><path d="M20 40Q140 5 260 40" fill="none" stroke="#8b6914" stroke-width="1.5"/><line x1="140" y1="10" x2="140" y2="75" stroke="#2472a4" stroke-width="1.5" stroke-dasharray="4,3"/><polygon points="134,70 140,82 146,70" fill="#2472a4"/><text x="155" y="55" font-family="Bebas Neue,sans-serif" font-size="11" fill="#2472a4" letter-spacing="1">DOWNHILL</text></svg>
+      <h3>V's Point Down = Ridge</h3>
+      <p>V-shapes pointing toward lower elevation indicate a ridge or spur — high ground extending outward.</p>
+    </div>
+    <div class="rtl-rc">
+      <svg viewBox="0 0 280 120"><path d="M20 30Q80 60 140 30Q200 0 260 30" fill="none" stroke="#8b6914" stroke-width="1.5"/><path d="M20 55Q80 80 140 55Q200 30 260 55" fill="none" stroke="#8b6914" stroke-width="2.5"/><path d="M20 80Q80 100 140 80Q200 60 260 80" fill="none" stroke="#8b6914" stroke-width="1.5"/><path d="M20 100Q80 115 140 100Q200 85 260 100" fill="none" stroke="#8b6914" stroke-width="1.5"/><text x="140" y="70" font-family="Bebas Neue,sans-serif" font-size="12" fill="#4a7c4a" letter-spacing="2" text-anchor="middle">NEVER CROSS</text></svg>
+      <h3>Lines Never Cross</h3>
+      <p>Contour lines never intersect. One point can't be two different elevations. If lines appear to touch, it's a cliff.</p>
+    </div>
+    <div class="rtl-rc">
+      <svg viewBox="0 0 280 120"><ellipse cx="100" cy="60" rx="70" ry="45" fill="none" stroke="#8b6914" stroke-width="1.5"/><path d="M200 15Q280 60 200 105" fill="none" stroke="#8b6914" stroke-width="1.5"/><line x1="200" y1="15" x2="200" y2="10" stroke="#8b6914" stroke-width="1" stroke-dasharray="3,2"/><line x1="200" y1="105" x2="200" y2="115" stroke="#8b6914" stroke-width="1" stroke-dasharray="3,2"/><text x="220" y="65" font-family="Bebas Neue,sans-serif" font-size="9" fill="#8b7355" letter-spacing="1">CONTINUES OFF MAP</text></svg>
+      <h3>Lines Always Close</h3>
+      <p>Every contour line forms a complete loop — even if it extends beyond the edge of your map.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 05 — TERRAIN FEATURES ═══ -->
+<div class="rtl-s rtl-w" id="rtl-s4">
+  <span class="rtl-sn">05 — TERRAIN FEATURES</span>
+  <h2>Terrain Feature Glossary</h2>
+  <p class="rtl-lead">Tap any card to expand the full field description of each terrain feature.</p>
+
+  <div class="rtl-fg">
+    <div class="rtl-fc" onclick="this.classList.toggle('rtl-open')">
+      <svg viewBox="0 0 250 160"><rect fill="#faf7f0" width="250" height="160"/><ellipse cx="75" cy="80" rx="55" ry="45" fill="none" stroke="#8b6914" stroke-width="1.5"/><ellipse cx="75" cy="80" rx="35" ry="28" fill="none" stroke="#8b6914" stroke-width="1.5"/><ellipse cx="75" cy="80" rx="15" ry="12" fill="none" stroke="#8b6914" stroke-width="1.5"/><ellipse cx="175" cy="80" rx="55" ry="45" fill="none" stroke="#8b6914" stroke-width="1.5"/><ellipse cx="175" cy="80" rx="35" ry="28" fill="none" stroke="#8b6914" stroke-width="1.5"/><ellipse cx="175" cy="80" rx="15" ry="12" fill="none" stroke="#8b6914" stroke-width="1.5"/><text x="125" y="85" font-family="Bebas Neue,sans-serif" font-size="11" fill="#c0392b" text-anchor="middle">SADDLE</text></svg>
+      <div class="rtl-fi"><h3>Saddle (Col)</h3><p>Low point between two higher peaks — looks like an hourglass pinch.</p></div>
+      <div class="rtl-fc-detail">The low point on a ridge crest between two peaks. On a topo map, look for the hourglass shape where two sets of concentric circles nearly touch. Saddles are natural crossing points and often where trails cross ridges. In the military, these are called "cols" and are critical terrain features for route planning.</div>
+    </div>
+
+    <div class="rtl-fc" onclick="this.classList.toggle('rtl-open')">
+      <svg viewBox="0 0 250 160"><rect fill="#faf7f0" width="250" height="160"/><path d="M30 140Q125 20 220 140" fill="none" stroke="#8b6914" stroke-width="1.5"/><path d="M40 140Q125 35 210 140" fill="none" stroke="#8b6914" stroke-width="2"/><path d="M50 140Q125 50 200 140" fill="none" stroke="#8b6914" stroke-width="1.5"/><path d="M60 140Q125 65 190 140" fill="none" stroke="#8b6914" stroke-width="1.5"/><path d="M70 140Q125 80 180 140" fill="none" stroke="#8b6914" stroke-width="2"/><line x1="125" y1="20" x2="125" y2="140" stroke="#2472a4" stroke-width="1" stroke-dasharray="4,3"/><text x="140" y="50" font-family="Bebas Neue,sans-serif" font-size="10" fill="#2472a4">RIDGELINE</text></svg>
+      <div class="rtl-fi"><h3>Ridge</h3><p>Elongated high ground. Contour V's point away from the ridge toward lower ground.</p></div>
+      <div class="rtl-fc-detail">A long, narrow area of high ground. Contour lines form U or V shapes pointing DOWNHILL (toward lower elevation). Ridges make great navigation handrails — follow the high ground between the contour bends. When hiking, ridges often offer the driest footing and best visibility.</div>
+    </div>
+
+    <div class="rtl-fc" onclick="this.classList.toggle('rtl-open')">
+      <svg viewBox="0 0 250 160"><rect fill="#faf7f0" width="250" height="160"/><path d="M30 20Q125 140 220 20" fill="none" stroke="#8b6914" stroke-width="1.5"/><path d="M35 35Q125 140 215 35" fill="none" stroke="#8b6914" stroke-width="2"/><path d="M40 50Q125 138 210 50" fill="none" stroke="#8b6914" stroke-width="1.5"/><path d="M45 65Q125 135 205 65" fill="none" stroke="#8b6914" stroke-width="1.5"/><path d="M50 80Q125 130 200 80" fill="none" stroke="#8b6914" stroke-width="2"/><line x1="125" y1="140" x2="125" y2="20" stroke="#2472a4" stroke-width="1" stroke-dasharray="4,3"/><text x="140" y="130" font-family="Bebas Neue,sans-serif" font-size="10" fill="#2472a4">DRAINAGE</text></svg>
+      <div class="rtl-fi"><h3>Draw (Valley)</h3><p>The opposite of a ridge — a low channel. V's point uphill. Water collects and flows here.</p></div>
+      <div class="rtl-fc-detail">The low ground between two ridges or spurs. Contour V-shapes point UPHILL toward higher elevation. Water collects here — streams and rivers run through draws. In the field, draws are natural paths for water drainage. If you're looking for water in backcountry, follow the draws.</div>
+    </div>
+
+    <div class="rtl-fc" onclick="this.classList.toggle('rtl-open')">
+      <svg viewBox="0 0 250 160"><rect fill="#faf7f0" width="250" height="160"/><path d="M20 30C80 30 100 80 220 80" fill="none" stroke="#8b6914" stroke-width="1.5"/><path d="M20 50C80 50 100 90 220 90" fill="none" stroke="#8b6914" stroke-width="2"/><path d="M20 70C80 70 100 100 220 100" fill="none" stroke="#8b6914" stroke-width="1.5"/><path d="M20 90C80 90 100 110 220 110" fill="none" stroke="#8b6914" stroke-width="1.5"/><path d="M20 110C80 110 100 120 220 120" fill="none" stroke="#8b6914" stroke-width="2"/><text x="180" y="70" font-family="Bebas Neue,sans-serif" font-size="10" fill="#c0392b">SPUR</text></svg>
+      <div class="rtl-fi"><h3>Spur</h3><p>A finger of high ground jutting out from a ridge. U-shape points downhill.</p></div>
+      <div class="rtl-fc-detail">A finger of higher ground extending out from a ridge. Similar to a ridge but shorter and jutting to the side. Contour lines form U-shapes pointing downhill. Spurs are excellent landmarks for navigation — they're distinct enough to identify from a distance and confirm your position on the map.</div>
+    </div>
+
+    <div class="rtl-fc" onclick="this.classList.toggle('rtl-open')">
+      <svg viewBox="0 0 250 160"><rect fill="#faf7f0" width="250" height="160"/><path d="M30 40Q125 30 220 40" fill="none" stroke="#8b6914" stroke-width="1.5"/><path d="M30 55Q125 46 220 55" fill="none" stroke="#8b6914" stroke-width="1.5"/><path d="M30 67Q125 60 220 67" fill="none" stroke="#8b6914" stroke-width="1.5"/><path d="M30 76Q125 71 220 76" fill="none" stroke="#8b6914" stroke-width="2"/><path d="M30 82Q125 78 220 82" fill="none" stroke="#8b6914" stroke-width="1.5"/><path d="M30 86Q125 83 220 86" fill="none" stroke="#8b6914" stroke-width="1.5"/><path d="M30 89Q125 87 220 89" fill="none" stroke="#8b6914" stroke-width="1.5"/><path d="M30 110Q125 100 220 110" fill="none" stroke="#8b6914" stroke-width="1.5"/><path d="M30 130Q125 115 220 130" fill="none" stroke="#8b6914" stroke-width="2"/><text x="125" y="150" font-family="Bebas Neue,sans-serif" font-size="10" fill="#c0392b" text-anchor="middle">⚠ CLIFF FACE</text></svg>
+      <div class="rtl-fi"><h3>Cliff</h3><p>Lines stacking extremely close or merging. Dangerously steep — possibly vertical.</p></div>
+      <div class="rtl-fc-detail">When contour lines stack extremely close together or appear to merge, you're looking at near-vertical terrain. Some maps use special cliff symbols (tiny tick marks). If planning a route, cliffs are impassable — navigate around them. On USGS maps, a cliff band often shows as a thick brown smear.</div>
+    </div>
+
+    <div class="rtl-fc" onclick="this.classList.toggle('rtl-open')">
+      <svg viewBox="0 0 250 160"><rect fill="#faf7f0" width="250" height="160"/><path d="M30 40Q125 35 220 40" fill="none" stroke="#8b6914" stroke-width="1.5"/><path d="M30 100Q125 95 220 100" fill="none" stroke="#8b6914" stroke-width="2"/><text x="125" y="75" font-family="Bebas Neue,sans-serif" font-size="11" fill="#8b7355" text-anchor="middle" letter-spacing="3">WIDE GAP</text><path d="M30 140Q125 138 220 142" fill="none" stroke="#8b6914" stroke-width="1.5" stroke-dasharray="6,4"/></svg>
+      <div class="rtl-fi"><h3>Flat / Gentle Slope</h3><p>Widely spaced lines mean very gradual elevation change.</p></div>
+      <div class="rtl-fc-detail">Very widely spaced contour lines indicate minimal elevation change. In extremely flat areas, you may see dashed supplementary lines at half the normal contour interval to show subtle features that would otherwise be invisible. Flat areas near water often indicate marshland or flood plains.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 06 — PRO TIPS ═══ -->
+<div class="rtl-s" id="rtl-s5">
+  <span class="rtl-sn">06 — FIELD CRAFT</span>
+  <h2>Pro Tips</h2>
+  <p class="rtl-lead">Beyond the basics — these are the things that separate a topo-reader from a topo-<em>master</em>.</p>
+
+  <h3>Reading Water Flow</h3>
+  <p>Water always flows perpendicular to contour lines, from high elevation to low. Find the V-shaped contour lines pointing uphill — that's your drainage. A stream will run right down the center of that V. The tighter the V, the steeper and faster the water.</p>
+  <div class="rtl-tip"><strong>QUICK TEST →</strong> Drop an imaginary marble on the map. It rolls perpendicular to the contour lines toward lower elevation. Where marbles from different directions converge? That's where you'll find water.</div>
+
+  <h3>Estimating Trail Steepness</h3>
+  <p>Count how many contour lines your trail crosses in a given distance. If your map has a 40-foot contour interval and your trail crosses 5 lines in half a mile, that's 200 feet of elevation gain — a steady but manageable climb. Cross 15 lines in the same distance? That's 600 feet. Prepare your legs.</p>
+  <div class="rtl-tip"><strong>RULE OF THUMB →</strong> On a USGS 7.5-minute quad (1:24,000 scale), one inch on the map ≈ 2,000 feet on the ground. Use this with contour counting to estimate grade.</div>
+
+  <h3>Navigating with Contour Lines</h3>
+  <p>When the trail disappears or the fog rolls in, contour lines are your best friend. If you know your elevation (from an altimeter or GPS), you know you're somewhere on that contour line. Combine that with a single identifiable terrain feature — a ridge, a creek, a saddle — and you've got a fix on your position.</p>
+
+  <h3>Reading Aspect</h3>
+  <p>Aspect is which direction a slope faces. This matters more than most people realize. South-facing slopes get more sun — less snow in winter, drier in summer. North-facing slopes hold snow longer, stay cooler, have different vegetation.</p>
+  <div class="rtl-tip"><strong>HUNTER'S TIP →</strong> Game tends to feed on south-facing slopes in morning (warming sun) and bed on north-facing slopes (shade and cover). Topo maps tell you this before you leave the truck.</div>
+</div>
+
+<!-- ═══ 07 — QUIZ ═══ -->
+<div class="rtl-s" id="rtl-s6">
+  <span class="rtl-sn">07 — TEST YOURSELF</span>
+  <h2>Can You Read the Land?</h2>
+  <p class="rtl-lead">Put your new skills to the test. Identify the terrain features in each topo snippet.</p>
+
+  <div class="rtl-qz" id="rtlQZ">
+    <div class="rtl-qp" id="rtlQP">QUESTION 1 OF 6</div>
+    <svg id="rtlQS" viewBox="0 0 500 280"></svg>
+    <p id="rtlQQ" style="margin-bottom:1rem!important;font-size:1.1rem!important;color:#f5f2eb!important;"></p>
+    <div class="rtl-qo" id="rtlQO"></div>
+    <div class="rtl-qfb" id="rtlQF"></div>
+    <button class="rtl-qnx" id="rtlQN">NEXT →</button>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<div class="rtl-ft">
+  <img src="https://deviantink.com/content/wp-content/uploads/2021/09/DI-logo-wht.png" alt="Deviant Ink">
+  <p>© Deviant Ink — Read the Land Guide</p>
+</div>
+
+</div><!-- end #rtl-root -->
+
+<script>
+(function(){
+"use strict";
+var QD=[
+  {svg:'<rect fill="#1a1a1a" width="500" height="280"/><ellipse cx="250" cy="140" rx="200" ry="110" fill="none" stroke="#c4a44a" stroke-width="1.5"/><ellipse cx="250" cy="140" rx="160" ry="88" fill="none" stroke="#c4a44a" stroke-width="1.5"/><ellipse cx="250" cy="140" rx="120" ry="66" fill="none" stroke="#c4a44a" stroke-width="2.5"/><ellipse cx="250" cy="140" rx="80" ry="44" fill="none" stroke="#c4a44a" stroke-width="1.5"/><ellipse cx="250" cy="140" rx="40" ry="22" fill="none" stroke="#c4a44a" stroke-width="1.5"/>',q:"What terrain feature do these contour lines represent?",o:["Valley","Hilltop / Summit","Depression","Saddle"],c:1,x:"Concentric closed contour lines with no tick marks = a hilltop. The innermost circle is the highest point."},
+  {svg:'<rect fill="#1a1a1a" width="500" height="280"/><path d="M50 250Q250 20 450 250" fill="none" stroke="#c4a44a" stroke-width="1.5"/><path d="M50 230Q250 40 450 230" fill="none" stroke="#c4a44a" stroke-width="2.5"/><path d="M50 210Q250 60 450 210" fill="none" stroke="#c4a44a" stroke-width="1.5"/><path d="M50 190Q250 80 450 190" fill="none" stroke="#c4a44a" stroke-width="1.5"/><path d="M50 170Q250 100 450 170" fill="none" stroke="#c4a44a" stroke-width="2.5"/><text x="250" y="270" font-family="Bebas Neue" font-size="12" fill="#555" text-anchor="middle" letter-spacing="3">↑ HIGHER ELEVATION ↑</text>',q:"The V-shapes point toward higher elevation. This is a:",o:["Ridge / Spur","Draw / Valley","Cliff","Flat area"],c:1,x:"V-shapes pointing uphill = a draw or valley. Water flows down through this channel."},
+  {svg:'<rect fill="#1a1a1a" width="500" height="280"/><path d="M50 30Q250 25 450 30" fill="none" stroke="#c4a44a" stroke-width="1.5"/><path d="M50 65Q250 58 450 65" fill="none" stroke="#c4a44a" stroke-width="1.5"/><path d="M50 95Q250 88 450 95" fill="none" stroke="#c4a44a" stroke-width="2.5"/><path d="M50 108Q250 102 450 108" fill="none" stroke="#c4a44a" stroke-width="1.5"/><path d="M50 117Q250 112 450 117" fill="none" stroke="#c4a44a" stroke-width="1.5"/><path d="M50 124Q250 120 450 124" fill="none" stroke="#c4a44a" stroke-width="1.5"/><path d="M50 130Q250 127 450 130" fill="none" stroke="#c4a44a" stroke-width="1.5"/><path d="M50 135Q250 133 450 135" fill="none" stroke="#c4a44a" stroke-width="2.5"/><path d="M50 170Q250 160 450 170" fill="none" stroke="#c4a44a" stroke-width="1.5"/><path d="M50 210Q250 195 450 210" fill="none" stroke="#c4a44a" stroke-width="1.5"/><path d="M50 250Q250 235 450 250" fill="none" stroke="#c4a44a" stroke-width="2.5"/>',q:"The line spacing changes dramatically in the middle. What does this indicate?",o:["A flat plateau","A cliff or very steep face","A river crossing","A hilltop"],c:1,x:"When contour lines merge close together into a dense band, that's a cliff or extremely steep face."},
+  {svg:'<rect fill="#1a1a1a" width="500" height="280"/><ellipse cx="160" cy="140" rx="120" ry="100" fill="none" stroke="#c4a44a" stroke-width="1.5"/><ellipse cx="160" cy="140" rx="85" ry="70" fill="none" stroke="#c4a44a" stroke-width="1.5"/><ellipse cx="160" cy="140" rx="50" ry="40" fill="none" stroke="#c4a44a" stroke-width="2.5"/><ellipse cx="160" cy="140" rx="20" ry="15" fill="none" stroke="#c4a44a" stroke-width="1.5"/><ellipse cx="340" cy="140" rx="120" ry="100" fill="none" stroke="#c4a44a" stroke-width="1.5"/><ellipse cx="340" cy="140" rx="85" ry="70" fill="none" stroke="#c4a44a" stroke-width="1.5"/><ellipse cx="340" cy="140" rx="50" ry="40" fill="none" stroke="#c4a44a" stroke-width="2.5"/><ellipse cx="340" cy="140" rx="20" ry="15" fill="none" stroke="#c4a44a" stroke-width="1.5"/><circle cx="250" cy="140" r="5" fill="#c0392b"/>',q:"The red dot marks the low point between two peaks. This is called a:",o:["Depression","Draw","Saddle / Col","Bench"],c:2,x:"A saddle (or col) is the low point on a ridge between two higher summits."},
+  {svg:'<rect fill="#1a1a1a" width="500" height="280"/><ellipse cx="250" cy="140" rx="200" ry="110" fill="none" stroke="#c4a44a" stroke-width="1.5"/><ellipse cx="250" cy="140" rx="150" ry="82" fill="none" stroke="#c4a44a" stroke-width="1.5"/><ellipse cx="250" cy="140" rx="100" ry="55" fill="none" stroke="#c4a44a" stroke-width="2.5"/><ellipse cx="250" cy="140" rx="55" ry="30" fill="none" stroke="#c4a44a" stroke-width="1.5"/><line x1="150" y1="82" x2="162" y2="90" stroke="#c4a44a" stroke-width="1.5"/><line x1="350" y1="82" x2="338" y2="90" stroke="#c4a44a" stroke-width="1.5"/><line x1="250" y1="58" x2="250" y2="70" stroke="#c4a44a" stroke-width="1.5"/><line x1="250" y1="222" x2="250" y2="210" stroke="#c4a44a" stroke-width="1.5"/><line x1="175" y1="200" x2="185" y2="192" stroke="#c4a44a" stroke-width="1.5"/><line x1="325" y1="200" x2="315" y2="192" stroke="#c4a44a" stroke-width="1.5"/>',q:"Closed contour lines with tick marks pointing inward indicate:",o:["A hilltop","A depression / crater","A saddle","A plateau"],c:1,x:"Tick marks pointing inward on closed contour lines = a depression. Ground goes DOWN inside."},
+  {svg:'<rect fill="#1a1a1a" width="500" height="280"/><path d="M50 30Q250 250 450 30" fill="none" stroke="#c4a44a" stroke-width="1.5"/><path d="M50 60Q250 250 450 60" fill="none" stroke="#c4a44a" stroke-width="2.5"/><path d="M50 90Q250 245 450 90" fill="none" stroke="#c4a44a" stroke-width="1.5"/><path d="M50 120Q250 240 450 120" fill="none" stroke="#c4a44a" stroke-width="1.5"/><path d="M50 150Q250 235 450 150" fill="none" stroke="#c4a44a" stroke-width="2.5"/><path d="M50 180Q250 230 450 180" fill="none" stroke="#c4a44a" stroke-width="1.5"/><text x="250" y="270" font-family="Bebas Neue" font-size="12" fill="#555" text-anchor="middle" letter-spacing="3">↓ LOWER ELEVATION ↓</text>',q:"The V-shapes point DOWNHILL. This is a:",o:["Draw / Valley","Ridge / Spur","Depression","Cliff"],c:1,x:"V-shapes pointing downhill = a ridge or spur. High ground extending outward."}
+];
+var cQ=0,sc=0,an=false;
+function ld(){
+  if(cQ>=QD.length){fin();return;}
+  an=false;var q=QD[cQ];
+  document.getElementById('rtlQP').textContent='QUESTION '+(cQ+1)+' OF '+QD.length;
+  document.getElementById('rtlQS').innerHTML=q.svg;
+  document.getElementById('rtlQQ').textContent=q.q;
+  document.getElementById('rtlQF').textContent='';
+  document.getElementById('rtlQN').classList.remove('rtl-show');
+  var oo=document.getElementById('rtlQO');oo.innerHTML='';
+  q.o.forEach(function(opt,i){
+    var b=document.createElement('button');b.className='rtl-qb';b.textContent=opt;
+    b.onclick=function(){ck(i);};oo.appendChild(b);
+  });
+}
+function ck(idx){
+  if(an)return;an=true;var q=QD[cQ],bs=document.querySelectorAll('#rtl-root .rtl-qb');
+  bs.forEach(function(b,i){if(i===q.c)b.classList.add('rtl-y');else if(i===idx)b.classList.add('rtl-n');});
+  if(idx===q.c){sc++;document.getElementById('rtlQF').textContent='\u2713 Correct! '+q.x;}
+  else{document.getElementById('rtlQF').textContent='\u2717 Not quite. '+q.x;}
+  document.getElementById('rtlQN').classList.add('rtl-show');
+}
+document.getElementById('rtlQN').onclick=function(){cQ++;ld();};
+function fin(){
+  var a=document.getElementById('rtlQZ'),
+  msg=sc===QD.length?'You can read the land. Get out there.':sc>=4?'Strong work. Review a couple sections and you\'ll nail it.':sc>=3?'Decent foundation. Hit the guide again and retry.':'Keep at it. Scroll back through and give it another shot.';
+  a.innerHTML='<div style="text-align:center!important;padding:3rem 1rem!important;"><div class="rtl-qp">FINAL SCORE</div><div class="rtl-bn">'+sc+'/'+QD.length+'</div><p style="margin:1rem 0!important;opacity:.7!important;color:#f5f2eb!important;">'+msg+'</p><button class="rtl-qnx rtl-show" id="rtlRe">TRY AGAIN</button></div>';
+  document.getElementById('rtlRe').onclick=function(){cQ=0;sc=0;
+    a.innerHTML='<div class="rtl-qp" id="rtlQP"></div><svg id="rtlQS" viewBox="0 0 500 280"></svg><p id="rtlQQ" style="margin-bottom:1rem!important;font-size:1.1rem!important;color:#f5f2eb!important;"></p><div class="rtl-qo" id="rtlQO"></div><div class="rtl-qfb" id="rtlQF"></div><button class="rtl-qnx" id="rtlQN">NEXT →</button>';
+    document.getElementById('rtlQN').onclick=function(){cQ++;ld();};ld();
+  };
+}
+ld();
+})();
+</script>
